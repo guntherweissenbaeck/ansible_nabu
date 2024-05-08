@@ -1,0 +1,23 @@
+---
+- name: Set Firewall for OpenSSH, http, https
+  hosts: all
+  gather_facts: true
+  become: true
+
+  tasks:
+    - name: Allow traffic for http service.
+      community.general.ufw:
+        rule: allow
+        port: '80'
+        proto: tcp
+
+    - name: Allow traffic for https service.
+      community.general.ufw:
+        rule: allow
+        port: '443'
+        proto: tcp
+
+    - name: Allow traffic for OpenSSH service.
+      community.general.ufw:
+        rule: allow
+        name: OpenSSH

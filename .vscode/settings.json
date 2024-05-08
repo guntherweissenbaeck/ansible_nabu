@@ -1,0 +1,6 @@
+{
+    "ansible.python.interpreterPath": "/Users/gw/Documents/develop/ansible/.venv/bin/python",
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/playbook": "file:///Users/gw/Documents/develop/ansible/playbooks/os/firewall.yaml"
+    }
+}

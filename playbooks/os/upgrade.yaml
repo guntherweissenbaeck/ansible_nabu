@@ -1,0 +1,25 @@
+---
+- name: Upgrade all Packages
+  hosts: all
+  gather_facts: true
+  become: true
+
+  tasks:
+    - name: Perform a dist-upgrade.
+      ansible.builtin.apt:
+        upgrade: dist
+        update_cache: true
+
+    - name: Check if a reboot is required.
+      ansible.builtin.stat:
+        path: /var/run/reboot-required
+      register: reboot_required_file
+
+    - name: Remove dependencies that are no longer required.
+      ansible.builtin.apt:
+        autoremove: true
+
+    - name: Show reboot required message.
+      ansible.builtin.debug:
+        msg: "Reboot required."
+      when: reboot_required_file.stat.exists
