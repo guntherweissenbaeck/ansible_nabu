@@ -1,0 +1,17 @@
+--- 
+
+- name: Rebooting.
+  hosts: all
+
+  tasks:
+    - name: Reboot the server.
+      command: reboot
+      async: 1
+      poll: 0
+      ignore_errors: yes
+
+    - name: Wait for the server to come back up.
+      wait_for_connection:
+        delay: 60
+        sleep: 5
+        timeout: 300
