@@ -1,7 +1,7 @@
 --- 
-
 - name: Rebooting.
   hosts: all
+  gather_facts: false
 
   tasks:
     - name: Reboot the server.

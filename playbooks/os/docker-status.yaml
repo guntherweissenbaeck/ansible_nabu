@@ -1,0 +1,17 @@
+---
+- name: Docker status.
+  hosts: all
+  gather_facts: false
+  become: true
+
+
+  tasks:
+    - name: Check the status of a docker container.
+      ansible.builtin.command: docker ps -a 
+      register: result
+
+    - name: Show the status of a docker container.
+      ansible.builtin.debug:
+        var: result.stdout_lines
+
+

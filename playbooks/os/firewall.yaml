@@ -1,5 +1,5 @@
 ---
-- name: Set Firewall for OpenSSH, http, https
+- name: Set Firewall for OpenSSH, http, https.
   hosts: all
   gather_facts: true
   become: true
