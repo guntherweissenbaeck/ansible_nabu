@@ -5,21 +5,21 @@
   become: true
 
   tasks:
-    - name: Perform a dist-upgrade.
+    - name: Perform A Dist-Upgrade.
       ansible.builtin.apt:
         upgrade: dist
         update_cache: true
 
-    - name: Check if a reboot is required.
+    - name: Check If A Reboot Is Required.
       ansible.builtin.stat:
         path: /var/run/reboot-required
       register: reboot_required_file
 
-    - name: Remove dependencies that are no longer required.
+    - name: Remove Dependencies ThTt Are No Longer Required.
       ansible.builtin.apt:
         autoremove: true
 
-    - name: Show reboot required message.
+    - name: Show Reboot Required Message.
       ansible.builtin.debug:
         msg: "Reboot required."
       when: reboot_required_file.stat.exists
