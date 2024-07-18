@@ -8,9 +8,9 @@
   tasks:
     - name: Check the status of a docker container.
       ansible.builtin.command: docker ps -a
-      register: my_output
-      changed_when: my_output.rc != 0 # <- Uses the return code to define when the task has changed.
+      register: docker_output
+      changed_when: docker_output.rc != 0 # <- Uses the return code to define when the task has changed.
 
     - name: Show the status of a docker container.
       ansible.builtin.debug:
-        var: my_output.stdout_lines
+        var: docker_output.stdout_lines
