@@ -4,13 +4,12 @@
   gather_facts: false
   become: true
 
-
   tasks:
-    - name: Check the status of a docker container.
+    - name: Check Status Of Docker Containers.
       ansible.builtin.command: docker ps -a
       register: docker_output
-      changed_when: docker_output.rc != 0 # <- Uses the return code to define when the task has changed.
+      changed_when: docker_output.rc != 0
 
-    - name: Show the status of a docker container.
+    - name: Status Of Docker Containers.
       ansible.builtin.debug:
         var: docker_output.stdout_lines
