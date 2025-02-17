@@ -13,3 +13,8 @@
     - name: Status Of Docker Containers.
       ansible.builtin.debug:
         var: docker_output.stdout_lines
+
+    - name: Show Status Of Docker-Container.
+      ansible.builtin.debug:
+         var: docker_output.stdout_lines
+
