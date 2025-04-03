@@ -10,11 +10,6 @@
       register: docker_output
       changed_when: docker_output.rc != 0
 
-    - name: Status Of Docker Containers.
-      ansible.builtin.debug:
-        var: docker_output.stdout_lines
-
     - name: Show Status Of Docker-Container.
       ansible.builtin.debug:
-         var: docker_output.stdout_lines
-
+        var: docker_output.stdout_lines
